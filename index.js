@@ -9,7 +9,7 @@ require('dotenv').config()
 
 //get request
 app.get('/', (req,res)=>{
-    res.status(200).json({"slackUsername":"julia mwangi", "backend":"true", "age":"25", "bio": "My name is julia mwangi a  software developer from Kenya"})
+    res.status(200).json({"slackUsername":"julia mwangi", "backend":true, "age":25, "bio": "My name is julia mwangi a  software developer from Kenya"})
 })
 
 
