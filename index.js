@@ -16,6 +16,9 @@ app.get('/', (req,res)=>{
 app.listen(process.env.PORT, ()=>{
     console.log('connected')
 })
+
+// Export the Express API
+module.exports = app
  
 
 
