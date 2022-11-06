@@ -17,7 +17,7 @@ app.get('/', (req,res)=>{
 
 
 
-app.post('/', (req, res)=>{
+app.post('/operation', (req, res)=>{
     const{operation, x, y}= req.body
     let result;
     switch(operation){
