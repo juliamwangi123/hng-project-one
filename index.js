@@ -22,7 +22,7 @@ app.get('/', (req,res)=>{
 
 
 
-app.post('/', (req, res)=>{
+app.post('/operation', (req, res)=>{
     let pickedOperator= readline.question(`Select 0 for ${operator[0]} 1. For  ${operator[1]} or 2. for ${operator[2]}: `)
 
     let operation =()=>{
