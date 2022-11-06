@@ -4,16 +4,11 @@ require('dotenv').config()
 const readline= require('readline-sync')
  //intialize express
  const app = express()
+ app.use(express.json())
  let operator =['+', '-', '*']
 
 
 
- let opertion =()=>{
-  
-
-
-
- }
 
  //get request
 app.get('/', (req,res)=>{
@@ -22,31 +17,24 @@ app.get('/', (req,res)=>{
 
 
 
-app.post('/operation', (req, res)=>{
-    let pickedOperator= readline.question(`Select 0 for ${operator[0]} 1. For  ${operator[1]} or 2. for ${operator[2]}: `)
-
-    let operation =()=>{
-
-        let num1 = Number(readline.question('input value 1:  '))
-        let num2 = Number(readline.question('input value 2:  ')
-    )
-    
-        if(pickedOperator == operator.indexOf('+')){
-            return num1 + num2
-        }else if( pickedOperator == operator.indexOf('-')){
-            return num1 - num2
-        }else if(pickedOperator == operator.indexOf('*')){
-            return num1 * num2
-        }else{
-            console.log('invalid operation')
-        }
+app.post('/', (req, res)=>{
+    const{operation, x, y}= req.body
+    let result;
+    switch(operation){
+        case "addition":
+            result =x+y
+            break;
+            case "subtraction":
+            result =x-y
+            break;
+            case "multiplication":
+            result =x*y
+            break;
+            default:
+                result = 'Invalid operation'
     }
-   
 
-let results=operation()
-res.status(200).json({"slackUsername": "julia mwangi","result" : results, "operation-type":operator[pickedOperator]})
-
-
+    res.status(200).json({"slackUsername":"julia mwangi", "operation_type":operation, "result": result})
 })
 
 app.listen(process.env.PORT, ()=>{
