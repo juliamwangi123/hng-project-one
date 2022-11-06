@@ -5,36 +5,39 @@ const readline= require('readline-sync')
  //intialize express
  const app = express()
  app.use(express.json())
- let operator =['+', '-', '*']
 
 
 
 
- //get request
-app.get('/', (req,res)=>{
-    res.status(200).json({"slackUsername":"julia mwangi", "backend":true, "age":25, "bio": "My name is julia mwangi a  software developer from Kenya"})
-})
-
+ 
 
 
 app.post('/', (req, res)=>{
-    const{operation, x, y}= req.body
+    const operations ={
+        addition:'addition',
+        subtraction:'subtraction',
+        multiplication:'multiplication'
+
+    } 
+    const{operationValues=Object.values(operations), x, y}= req.body
     let result;
-    switch(operation){
+    switch(operationValues){
         case "addition":
             result =Number(x+y)
             break;
             case "subtraction":
             result =Number(x-y)
             break;
-            case "multiplication":
+            case "multiplication" :
             result =Number(x*y)
             break;
             default:
                 result = 'Invalid operation'
     }
+
+   
     console.log(typeof(result))
-    res.status(200).json({"slackUsername":"julia mwangi", "operation_type":operation, "result": result})
+    res.status(200).json({"slackUsername":"julia mwangi", "operation_type":operationValues, "result": result})
 })
 
 app.listen(process.env.PORT, ()=>{
