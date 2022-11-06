@@ -30,13 +30,13 @@ const readline= require('readline-sync')
  }
 
  //get request
-app.get('/operations', (req,res)=>{
+app.get('/', (req,res)=>{
     res.status(200).json({"slackUsername":"julia mwangi", "backend":true, "age":25, "bio": "My name is julia mwangi a  software developer from Kenya"})
 })
 
 
 
-app.post('/', (req, res)=>{
+app.post('/operation', (req, res)=>{
     
 let results=opertion()
 res.status(200).json({"slackUsername": "julia mwangi","result" : results, "operation-type":operator[pickedOperator]})
