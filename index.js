@@ -36,13 +36,6 @@ app.get('/', (req,res)=>{
 
 
 
-app.post('/operation', (req, res)=>{
-    
-let results=opertion()
-res.status(200).json({"slackUsername": "julia mwangi","result" : results, "operation-type":operator[pickedOperator]})
-
-
-})
 
 app.listen(process.env.PORT, ()=>{
 
