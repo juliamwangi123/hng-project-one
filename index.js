@@ -22,18 +22,18 @@ app.post('/', (req, res)=>{
     let result;
     switch(operation){
         case "addition":
-            result =x+y
+            result =Number(x+y)
             break;
             case "subtraction":
-            result =x-y
+            result =Number(x-y)
             break;
             case "multiplication":
-            result =x*y
+            result =Number(x*y)
             break;
             default:
                 result = 'Invalid operation'
     }
-
+    console.log(typeof(result))
     res.status(200).json({"slackUsername":"julia mwangi", "operation_type":operation, "result": result})
 })
 
