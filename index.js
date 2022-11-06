@@ -32,7 +32,7 @@ app.post('/', (req, res)=>{
             result =Number(x*y)
             break;
             default:
-                result = 'Invalid operation'
+                result = 0
     }
 
    
