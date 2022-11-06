@@ -29,6 +29,10 @@ const readline= require('readline-sync')
 
  }
 
+ //get request
+app.get('/operations', (req,res)=>{
+    res.status(200).json({"slackUsername":"julia mwangi", "backend":true, "age":25, "bio": "My name is julia mwangi a  software developer from Kenya"})
+})
 
 
 
