@@ -20,7 +20,7 @@ app.post('/', (req, res)=>{
 
     } 
     const{operationValues=Object.values(operations), x, y}= req.body
-    let result;
+    let result=0
     switch(operationValues){
         case "addition":
             result =Number(x+y)
@@ -32,7 +32,7 @@ app.post('/', (req, res)=>{
             result =Number(x*y)
             break;
             default:
-                result = 0
+                return 'invalid input'
     }
 
    
