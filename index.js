@@ -1,52 +1,20 @@
-// import modules 
-require('dotenv').config()
- const express = require('express');
-const readline= require('readline-sync')
- //intialize express
- const app = express()
- app.use(express.json())
+const express  = require("express");
+
+const indexRouter = require("./routes/routes");
+
+const app = express();
+
+// app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use("/", indexRouter);
 
 
 
-
- 
-
-
-app.post('/', (req, res)=>{
-    const operations ={
-        addition:'addition',
-        subtraction:'subtraction',
-        multiplication:'multiplication'
-
-    } 
-    const{operationValues=Object.values(operations), x, y}= req.body
-    let result=0
-    switch(operationValues){
-        case "addition":
-            result =Number(x+y)
-            break;
-            case "subtraction":
-            result =Number(x-y)
-            break;
-            case "multiplication" :
-            result =Number(x*y)
-            break;
-            default:
-                return 'invalid input'
-    }
-
-   
-    console.log(typeof(result))
-    res.status(200).json({"slackUsername":"julia mwangi", "operation_type":operationValues, "result": result})
-})
-
-app.listen(process.env.PORT, ()=>{
-    console.log('connected')
-
-})
-
-// Export the Express API
-module.exports = app
+app.listen(process.env.PORT, () => {
+  console.log("connected");
+});
  
 
 
