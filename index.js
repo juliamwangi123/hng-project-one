@@ -6,7 +6,7 @@ const readline= require('readline-sync')
  const app = express()
  let operator =['+', '-', '*']
 
- let pickedOperator= readline.question(`Select 0 for ${operator[0]} 1. For  ${operator[1]} or 2. for ${operator[2]}: `)
+//  let pickedOperator= readline.question(`Select 0 for ${operator[0]} 1. For  ${operator[1]} or 2. for ${operator[2]}: `)
 
 
  let opertion =()=>{
